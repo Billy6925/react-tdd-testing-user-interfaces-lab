@@ -4,8 +4,8 @@ function App() {
     <img src="your image" alt="me"/>
     <h2>About Me</h2>
     <p>I'm a full-stack developer</p>
-    <a href="Billy6925">Github</a>
-    <a href="linkedin">LinkedIn</a>
+    <a href="https://github.com/Billy6925">Github</a>
+    <a href="linkedin.com/your-profile">LinkedIn</a>
   </div>;
 }
 

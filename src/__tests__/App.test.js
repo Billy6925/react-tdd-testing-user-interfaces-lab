@@ -21,10 +21,7 @@ test("returns an image of yourself with alt text identifying the content of the 
    //Arrange
    render(<App/>);
    //Act
-   const image = screen.getByRole("img", {
-    name: /me/i,
-    exact:false,
-   }) 
+   const image = screen.getByAltText(/me/i);
   //Assert
   expect(image).toBeInTheDocument();
 })
@@ -35,6 +32,7 @@ test("returns a second-level heading with the text `About Me'",()=> {
     const secondLevelHeading = screen.getByRole("heading",{
         name: /about me/i,
         exact: false,
+        level: 2,
     })
     //Assert
     expect(secondLevelHeading).toBeInTheDocument();
@@ -55,10 +53,16 @@ test("returns a second-level heading with the text `About Me'",()=> {
     render(<App/>);
     //Act
     const linkElement = screen.getByRole('link', {
-name: /Billy6925/i,
+name: /github/i,
 exact:false,
-name: /linkedin/i,
+    });
+    const linkedInLink = screen.getByRole("link", {
+        name: /linkedin/i,
+        exact: false,
     })
     //Assert
     expect(linkElement).toBeInTheDocument();
+    expect(linkedInLink).toBeInTheDocument();
+    expect(linkElement).toHaveAttribute('href',"https://github.com/Billy6925");
+    expect(linkedInLink).toHaveAttribute('href',"linkedin.com/your-profile");    
    })
